@@ -24,16 +24,27 @@ export default function Home() {
     setActiveIndex(prevState => prevState - 1);
   }
 
+  const disabledPrevBtn = activeIndex === 0;
+  const disabledNextBtn = activeIndex >= 5;
+
   return (
     <div>
       <Navbar />
       <section onClick={closeModal}>
         <div>
-          <button className="prev" onClick={prevImage}>
+          <button
+            className="prev"
+            onClick={prevImage}
+            disabled={disabledPrevBtn}
+          >
             prev
           </button>
           <img src={sneakersImage} />
-          <button className="next" onClick={nextImage}>
+          <button
+            className="next"
+            onClick={nextImage}
+            disabled={disabledNextBtn}
+          >
             next
           </button>
         </div>
