@@ -12,41 +12,14 @@ export default function Home() {
     sneakersImagesArr[activeIndex]
   );
 
-  function nextImage() {
-    setActiveIndex(prevState => prevState + 1);
-  }
-
-  function prevImage() {
-    setActiveIndex(prevState => prevState - 1);
-  }
-
-  useEffect(() => {
-    setSneakersImage(sneakersImagesArr[activeIndex]);
-  }, [activeIndex]);
-
-  const disabledPrevBtn = activeIndex === 0;
-  const disabledNextBtn = activeIndex >= 5;
-
   return (
     <div>
       <Navbar />
       <section onClick={closeModal}>
         <div>
-          <button
-            className="prev"
-            disabled={disabledPrevBtn}
-            onClick={prevImage}
-          >
-            prev
-          </button>
+          <button className="prev">prev</button>
           <img src={sneakersImage} />
-          <button
-            className="next"
-            disabled={disabledNextBtn}
-            onClick={nextImage}
-          >
-            next
-          </button>
+          <button className="next">next</button>
         </div>
 
         <section className="product-info">
