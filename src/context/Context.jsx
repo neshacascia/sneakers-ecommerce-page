@@ -32,6 +32,14 @@ function ContextProvider(props) {
     setToggleMenu(false);
   }
 
+  if (activeIndex < 0) {
+    setActiveIndex(sneakersImagesArr.length - 1);
+  }
+
+  if (activeIndex > sneakersImagesArr.length - 1) {
+    setActiveIndex(0);
+  }
+
   return (
     <Context.Provider
       value={{
