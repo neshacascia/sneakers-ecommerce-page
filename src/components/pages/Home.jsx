@@ -24,8 +24,8 @@ export default function Home() {
     setActiveIndex(prevState => prevState - 1);
   }
 
-  const disabledPrevBtn = activeIndex === 0;
-  const disabledNextBtn = activeIndex >= 5;
+  const disablePrevBtn = activeIndex === 0;
+  const disableNextBtn = activeIndex === sneakersImagesArr.length - 1;
 
   return (
     <div>
@@ -35,7 +35,7 @@ export default function Home() {
           <button
             className="prev"
             onClick={prevImage}
-            disabled={disabledPrevBtn}
+            disabled={disablePrevBtn}
           >
             prev
           </button>
@@ -43,7 +43,7 @@ export default function Home() {
           <button
             className="next"
             onClick={nextImage}
-            disabled={disabledNextBtn}
+            disabled={disableNextBtn}
           >
             next
           </button>
