@@ -1,16 +1,53 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/Context';
-
 import Navbar from '../navbars/Navbar';
+
+import { sneakersImagesArr } from './sneakersImagesData';
 
 export default function Home() {
   const { closeModal } = useContext(Context);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [sneakersImage, setSneakersImage] = useState(
+    sneakersImagesArr[activeIndex]
+  );
+
+  function nextImage() {
+    setActiveIndex(prevState => prevState + 1);
+  }
+
+  function prevImage() {
+    setActiveIndex(prevState => prevState - 1);
+  }
+
+  useEffect(() => {
+    setSneakersImage(sneakersImagesArr[activeIndex]);
+  }, [activeIndex]);
+
+  const disabledPrevBtn = activeIndex === 0;
+  const disabledNextBtn = activeIndex >= 5;
 
   return (
     <div>
       <Navbar />
       <section onClick={closeModal}>
-        <img />
+        <div>
+          <button
+            className="prev"
+            disabled={disabledPrevBtn}
+            onClick={prevImage}
+          >
+            prev
+          </button>
+          <img src={sneakersImage} />
+          <button
+            className="next"
+            disabled={disabledNextBtn}
+            onClick={nextImage}
+          >
+            next
+          </button>
+        </div>
 
         <section className="product-info">
           <h3>adidas</h3>
