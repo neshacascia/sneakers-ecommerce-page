@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { Context } from './context/Context';
-import Home from './components/pages/Home';
+import Home from './pages/Home';
 import MobileMenuModal from './components/navbars/MobileMenuModal';
 import './App.css';
 
