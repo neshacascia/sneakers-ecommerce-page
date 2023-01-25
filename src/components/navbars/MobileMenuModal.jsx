@@ -1,11 +1,18 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
+import { navbarArr } from './navbarData';
 
 import closeBtn from '/assets/icon-close.svg';
 
 export default function MobileMenuModal() {
   const { closeModal } = useContext(Context);
+
+  const navbarLinks = navbarArr.map(item => (
+    <li key={item.id}>
+      <Link to={item.path}>{item.name}</Link>
+    </li>
+  ));
 
   return (
     <div>
@@ -13,23 +20,7 @@ export default function MobileMenuModal() {
         <img src={closeBtn} />
       </button>
 
-      <ul>
-        <li>
-          <Link to="#">Collections</Link>
-        </li>
-        <li>
-          <Link to="#">Men</Link>
-        </li>
-        <li>
-          <Link to="#">Women</Link>
-        </li>
-        <li>
-          <Link to="#">About</Link>
-        </li>
-        <li>
-          <Link to="#">Contact</Link>
-        </li>
-      </ul>
+      <ul>{navbarLinks}</ul>
     </div>
   );
 }
