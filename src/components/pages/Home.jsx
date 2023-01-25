@@ -12,14 +12,30 @@ export default function Home() {
     sneakersImagesArr[activeIndex]
   );
 
+  useEffect(() => {
+    setSneakersImage(sneakersImagesArr[activeIndex]);
+  }, [activeIndex]);
+
+  function nextImage() {
+    setActiveIndex(prevState => prevState + 1);
+  }
+
+  function prevImage() {
+    setActiveIndex(prevState => prevState - 1);
+  }
+
   return (
     <div>
       <Navbar />
       <section onClick={closeModal}>
         <div>
-          <button className="prev">prev</button>
+          <button className="prev" onClick={prevImage}>
+            prev
+          </button>
           <img src={sneakersImage} />
-          <button className="next">next</button>
+          <button className="next" onClick={nextImage}>
+            next
+          </button>
         </div>
 
         <section className="product-info">
