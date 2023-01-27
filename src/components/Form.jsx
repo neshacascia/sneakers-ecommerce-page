@@ -15,8 +15,12 @@ export default function Form() {
     setQuantity(prevQuantity => prevQuantity - 1);
   }
 
+  function submitHandler(e) {
+    e.preventDefault();
+  }
+
   return (
-    <form className="flex flex-col items-center">
+    <form className="flex flex-col items-center" onSubmit={submitHandler}>
       <div className="bg-gray-100 w-full h-14 flex justify-between items-center rounded-lg px-6">
         <button
           className="text-orange-500 font-bold text-xl"
