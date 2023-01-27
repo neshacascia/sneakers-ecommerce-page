@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 export default function Form() {
   const [quantity, setQuantity] = useState(0);
@@ -56,6 +58,10 @@ export default function Form() {
         className="bg-orange-500 font-display font-bold text-white w-full h-14 rounded-lg shadow-orange-200 shadow-lg mt-6"
         type="submit"
       >
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          className="pr-4"
+        ></FontAwesomeIcon>
         Add to cart
       </button>
     </form>
