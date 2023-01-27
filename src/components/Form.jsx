@@ -19,6 +19,8 @@ export default function Form() {
     e.preventDefault();
   }
 
+  const lessThanZero = quantity === 0;
+
   return (
     <form className="flex flex-col items-center" onSubmit={submitHandler}>
       <div className="bg-gray-100 w-full h-14 flex justify-between items-center rounded-lg px-6">
@@ -26,6 +28,7 @@ export default function Form() {
           className="text-orange-500 font-bold text-xl"
           type="button"
           onClick={minusQuantity}
+          disabled={lessThanZero}
         >
           -
         </button>
