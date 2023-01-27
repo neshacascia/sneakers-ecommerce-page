@@ -3,6 +3,9 @@ import { useState } from 'react';
 export default function Form() {
   const [quantity, setQuantity] = useState(0);
 
+  const lessThanZero = quantity === 0;
+  const quantityIsNotValid = quantity < 0;
+
   function inputChangeHandler(e) {
     setQuantity(e.target.value);
   }
@@ -18,8 +21,6 @@ export default function Form() {
   function submitHandler(e) {
     e.preventDefault();
   }
-
-  const lessThanZero = quantity === 0;
 
   return (
     <form className="flex flex-col items-center" onSubmit={submitHandler}>
@@ -47,6 +48,11 @@ export default function Form() {
           +
         </button>
       </div>
+      {quantityIsNotValid && (
+        <p className="text-red-500 font-display text-sm pt-6">
+          Quantity must be greater than or equal to 0
+        </p>
+      )}
       <button
         className="bg-orange-500 font-display font-bold text-white w-full h-14 rounded-lg shadow-orange-200 shadow-lg mt-6"
         type="submit"
