@@ -10,17 +10,21 @@ export default function MobileMenuModal() {
 
   const navbarLinks = navbarArr.map(item => (
     <li key={item.id}>
-      <Link to={item.path}>{item.name}</Link>
+      <Link to={item.path} className="hover:text-orange-500">
+        {item.name}
+      </Link>
     </li>
   ));
 
   return (
-    <div>
-      <button onClick={closeModal}>
+    <div className="bg-gray-100 h-screen w-7/12 fixed z-10 p-6">
+      <button className="mb-12" onClick={closeModal}>
         <img src={closeBtn} />
       </button>
 
-      <ul>{navbarLinks}</ul>
+      <ul className="text-dark font-display font-bold text-lg flex flex-col gap-5">
+        {navbarLinks}
+      </ul>
     </div>
   );
 }
