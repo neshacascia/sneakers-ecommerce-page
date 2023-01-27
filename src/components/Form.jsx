@@ -4,12 +4,14 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 export default function Form() {
   const [quantity, setQuantity] = useState(0);
+  const [isAdded, setIsAdded] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
 
   const disableMinusBtn = quantity === 0;
   const disablePlusBtn = quantity === 10;
-  const quantityIsNotValid = quantity < 0;
 
   function addQuantity() {
+    setIsTouched(true);
     setQuantity(prevQuantity => prevQuantity + 1);
   }
 
@@ -19,6 +21,10 @@ export default function Form() {
 
   function submitHandler(e) {
     e.preventDefault();
+    setIsTouched(false);
+    setIsAdded(true);
+
+    console.log('Added to cart!');
   }
 
   return (
@@ -49,11 +55,12 @@ export default function Form() {
           +
         </button>
       </div>
-      {quantityIsNotValid && (
+      {isAdded && !isTouched && quantity === 0 && (
         <p className="text-red-500 font-display text-sm pt-6">
-          Quantity must be greater than or equal to 0
+          Quantity needs to be greater than 0.
         </p>
       )}
+
       <button
         className="bg-orange-500 font-display font-bold text-white w-full h-14 rounded-lg shadow-orange-200 shadow-lg mt-6"
         type="submit"
