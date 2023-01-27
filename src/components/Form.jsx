@@ -3,12 +3,9 @@ import { useState } from 'react';
 export default function Form() {
   const [quantity, setQuantity] = useState(0);
 
-  const lessThanZero = quantity === 0;
+  const disableMinusBtn = quantity === 0;
+  const disablePlusBtn = quantity === 10;
   const quantityIsNotValid = quantity < 0;
-
-  function inputChangeHandler(e) {
-    setQuantity(e.target.value);
-  }
 
   function addQuantity() {
     setQuantity(prevQuantity => prevQuantity + 1);
@@ -29,7 +26,7 @@ export default function Form() {
           className="text-orange-500 font-bold text-xl"
           type="button"
           onClick={minusQuantity}
-          disabled={lessThanZero}
+          disabled={disableMinusBtn}
         >
           -
         </button>
@@ -37,13 +34,15 @@ export default function Form() {
           className="bg-gray-100 text-center font-bold"
           type="number"
           min="0"
+          max="10"
           value={quantity}
-          onChange={inputChangeHandler}
+          disabled
         />
         <button
           className="text-orange-500 font-bold text-xl"
           type="button"
           onClick={addQuantity}
+          disabled={disablePlusBtn}
         >
           +
         </button>
