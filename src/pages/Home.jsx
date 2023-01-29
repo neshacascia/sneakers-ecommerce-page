@@ -13,13 +13,15 @@ export default function Home() {
       <hr className="hidden lg:block mx-40" />
       <section
         onClick={closeModal}
-        className="h-full flex flex-col lg:flex-row lg:gap-28 lg:px-52 lg:mt-16"
+        className="h-full flex flex-col lg:flex-row lg:items-center lg:gap-28 lg:px-52 lg:mt-16"
       >
         <ImageCarousel />
 
         <section className="h-full font-display flex flex-col px-6 pt-6 mb-10 lg:w-fit">
-          <h3 className="font-brand text-lg pb-5">adidas</h3>
-          <h2 className="text-dark text-3xl font-bold pb-4">OZWEEGO SHOES</h2>
+          <h3 className="font-brand text-lg pb-5 xl:pb-6">adidas</h3>
+          <h2 className="text-dark text-3xl font-bold pb-4 xl:text-4xl xl:pb-8">
+            OZWEEGO SHOES
+          </h2>
           <p className="text-body text-base font-light pb-6">
             Push the boundaries of throwback style. These adidas OZWEEGO shoes
             mutate '90s DNA into something entirely new. Show off the
@@ -28,7 +30,7 @@ export default function Home() {
             beyond).
           </p>
 
-          <div className="font-display flex items-center pb-6">
+          <div className="font-display flex items-center pb-6 xl:pb-8">
             <span className="text-dark text-3xl font-bold pr-6">$135.00</span>
             <span className="bg-orange-100 text-orange-500 font-bold rounded px-2 mr-auto">
               25%
