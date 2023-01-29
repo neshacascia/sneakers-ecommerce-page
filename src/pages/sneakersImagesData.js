@@ -5,4 +5,6 @@ export const sneakersImagesArr = [
   '/assets/sneakers/ozweego-img4.webp',
   '/assets/sneakers/ozweego-img5.webp',
   '/assets/sneakers/ozweego-img6.webp',
+  '/assets/sneakers/ozweego-img7.jpeg',
+  '/assets/sneakers/ozweego-img8.webp',
 ];
