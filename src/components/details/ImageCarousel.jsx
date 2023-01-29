@@ -27,19 +27,19 @@ export default function ImageCarousel() {
       <div className="hidden w-display md:flex md:justify-center md:flex-wrap gap-4 mt-4">
         <img
           src={sneakersImagesArr[1]}
-          className="w-images h-images md:rounded-xl"
+          className="w-images h-images md:rounded-xl hover:opacity-70 hover:border-2 hover:border-orange-300 hover:cursor-pointer"
         />
         <img
           src={sneakersImagesArr[2]}
-          className="w-images h-images md:rounded-xl"
+          className="w-images h-images md:rounded-xl hover:opacity-70 hover:border-2 hover:border-orange-300 hover:cursor-pointer"
         />
         <img
           src={sneakersImagesArr[3]}
-          className="w-images h-images md:rounded-xl"
+          className="w-images h-images md:rounded-xl hover:opacity-70 hover:border-2 hover:border-orange-300 hover:cursor-pointer"
         />
         <img
           src={sneakersImagesArr[4]}
-          className="w-images h-images md:rounded-xl"
+          className="w-images h-images md:rounded-xl hover:opacity-70 hover:border-2 hover:border-orange-300 hover:cursor-pointer"
         />
       </div>
     </div>
