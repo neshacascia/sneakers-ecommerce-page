@@ -10,10 +10,14 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <section onClick={closeModal} className="h-full flex flex-col">
+      <hr className="hidden lg:block mx-40" />
+      <section
+        onClick={closeModal}
+        className="h-full flex flex-col lg:flex-row lg:gap-28 lg:px-52 lg:mt-16"
+      >
         <ImageCarousel />
 
-        <section className="h-full font-display flex flex-col px-6 pt-6 mb-10">
+        <section className="h-full font-display flex flex-col px-6 pt-6 mb-10 lg:w-fit">
           <h3 className="font-brand text-lg pb-5">adidas</h3>
           <h2 className="text-dark text-3xl font-bold pb-4">OZWEEGO SHOES</h2>
           <p className="text-body text-base font-light pb-6">
