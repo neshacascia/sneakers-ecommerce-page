@@ -11,20 +11,20 @@ export default function Navbar() {
   const { openModal } = useContext(Context);
 
   const navLinks = navbarArr.map(nav => (
-    <li key={nav.id}>
+    <li key={nav.id} className="hover:text-orange-500">
       <NavLink to="/#">{nav.name}</NavLink>
     </li>
   ));
 
   return (
-    <nav className="h-20 bg-white flex items-center px-6">
-      <button onClick={openModal} className="m-4 md:hidden">
+    <nav className="h-20 bg-white flex items-center px-6 lg:h-28 lg:px-40">
+      <button onClick={openModal} className="m-4 lg:hidden">
         <img src={hamburgerMenu} />
       </button>
 
-      <img src={logo} className="mr-auto md:mr-14" />
+      <img src={logo} className="mr-auto lg:mr-14" />
 
-      <ul className="hidden font-display text-navGray block md:flex items-center gap-8 mr-auto">
+      <ul className="hidden font-display text-navGray block lg:flex items-center gap-8 mr-auto">
         {navLinks}
       </ul>
 
