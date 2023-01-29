@@ -13,7 +13,7 @@ export default function Home() {
       <hr className="hidden lg:block mx-40" />
       <section
         onClick={closeModal}
-        className="h-full flex flex-col lg:flex-row lg:items-center lg:gap-28 lg:px-52 lg:mt-16"
+        className="h-full flex flex-col lg:flex-row lg:gap-28 lg:px-52 lg:mt-12 lg:mb-8"
       >
         <ImageCarousel />
 
