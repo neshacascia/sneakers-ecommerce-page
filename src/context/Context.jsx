@@ -6,6 +6,7 @@ const Context = createContext();
 
 function ContextProvider(props) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [imageGallery, setImageGallery] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [sneakersImage, setSneakersImage] = useState(
@@ -36,6 +37,14 @@ function ContextProvider(props) {
     setSneakersImage(sneakersImagesArr[e]);
   }
 
+  function openImageModal() {
+    setImageGallery(true);
+  }
+
+  function closeImageModal() {
+    setImageGallery(false);
+  }
+
   if (activeIndex < 0) {
     setActiveIndex(sneakersImagesArr.length - 1);
   }
@@ -56,6 +65,9 @@ function ContextProvider(props) {
         nextImage,
         prevImage,
         changeMainImage,
+        imageGallery,
+        openImageModal,
+        closeImageModal,
       }}
     >
       {props.children}
