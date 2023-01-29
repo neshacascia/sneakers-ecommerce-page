@@ -32,6 +32,10 @@ function ContextProvider(props) {
     setToggleMenu(false);
   }
 
+  function changeMainImage(e) {
+    setSneakersImage(sneakersImagesArr[e]);
+  }
+
   if (activeIndex < 0) {
     setActiveIndex(sneakersImagesArr.length - 1);
   }
@@ -51,6 +55,7 @@ function ContextProvider(props) {
         sneakersImage,
         nextImage,
         prevImage,
+        changeMainImage,
       }}
     >
       {props.children}
