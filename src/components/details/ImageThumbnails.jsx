@@ -6,7 +6,7 @@ import { sneakersImagesArr } from '../../pages/sneakersImagesData';
 export default function ImageThumbnails() {
   const { changeMainImage } = useContext(Context);
   return (
-    <div className="hidden w-display md:flex md:justify-center md:flex-wrap gap-4">
+    <div className="hidden w-display md:flex md:justify-center md:flex-wrap md:mt-6 gap-4 lg:mt-0">
       <img
         src={sneakersImagesArr[0]}
         className="w-images h-images md:rounded-xl hover:opacity-70 hover:border-2 hover:border-orange-500 hover:cursor-pointer"
