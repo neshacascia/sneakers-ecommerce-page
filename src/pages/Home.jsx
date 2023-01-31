@@ -11,6 +11,7 @@ export default function Home() {
     <div>
       <Navbar />
       <hr className="hidden lg:block mx-40" />
+
       <section
         onClick={closeModal}
         className="h-full flex flex-col lg:flex-row lg:gap-28 lg:px-52 lg:mt-12 lg:mb-8"
