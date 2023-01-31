@@ -14,7 +14,7 @@ export default function ImageModal() {
     useContext(Context);
 
   return (
-    <div className="bg-overlay h-screen w-screen fixed z-10 flex flex-col justify-center items-center">
+    <div className="hidden bg-overlay h-screen w-screen fixed z-10 lg:flex flex-col justify-center items-center">
       <button className="mb-6 ml-96" onClick={closeImageModal}>
         <FontAwesomeIcon
           icon={faXmark}
@@ -22,7 +22,7 @@ export default function ImageModal() {
         ></FontAwesomeIcon>
       </button>
 
-      <div className="relative mb-4 :w-display">
+      <div className="relative mb-4 w-display">
         <button
           onClick={prevImage}
           className="bg-white w-10 h-10 border-2 border-orange-300 rounded-full absolute top-1/2 -translate-y-1/2 flex items-center justify-center"
