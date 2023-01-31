@@ -13,6 +13,8 @@ function ContextProvider(props) {
     sneakersImagesArr[activeIndex]
   );
 
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   useEffect(() => {
     setSneakersImage(sneakersImagesArr[activeIndex]);
   }, [activeIndex]);
@@ -31,6 +33,7 @@ function ContextProvider(props) {
 
   function closeModal() {
     setToggleMenu(false);
+    setIsCartOpen(false);
   }
 
   function changeMainImage(e) {
@@ -45,6 +48,11 @@ function ContextProvider(props) {
     setImageGallery(false);
   }
 
+  function openCart() {
+    setIsCartOpen(true);
+  }
+
+  console.log(isCartOpen);
   if (activeIndex < 0) {
     setActiveIndex(sneakersImagesArr.length - 1);
   }
@@ -68,6 +76,8 @@ function ContextProvider(props) {
         imageGallery,
         openImageModal,
         closeImageModal,
+        isCartOpen,
+        openCart,
       }}
     >
       {props.children}

@@ -8,7 +8,7 @@ import logo from '/assets/logo.svg';
 import iconCart from '/assets/icon-cart.svg';
 
 export default function Navbar() {
-  const { openModal } = useContext(Context);
+  const { openModal, openCart } = useContext(Context);
 
   const navLinks = navbarArr.map(nav => (
     <li key={nav.id} className="hover:text-orange-500">
@@ -28,7 +28,7 @@ export default function Navbar() {
         {navLinks}
       </ul>
 
-      <button onClick={openModal}>
+      <button onClick={openCart}>
         <img src={iconCart} />
       </button>
     </nav>
