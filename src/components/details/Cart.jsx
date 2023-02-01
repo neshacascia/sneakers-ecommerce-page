@@ -19,12 +19,14 @@ export default function Cart() {
       {cart.items.length > 0 ? (
         <>
           {cartItems}
-          <h1>Total: ${cart.getTotalCost().toFixed(2)}</h1>
+          <h1 className="text-lg text-right pr-6 mb-2">
+            Total: ${cart.getTotalCost().toFixed(2)}
+          </h1>
         </>
       ) : (
-        <p className="text-center text-navGray px-6 pt-20">
-          Your cart is empty.
-        </p>
+        <div className="h-full flex justify-center items-center">
+          <p className=" text-navGray px-6">Your cart is empty.</p>
+        </div>
       )}
     </>
   );
