@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 
-import { sneakersImagesArr } from '../pages/sneakersData';
+import { sneakersImagesArr } from '../sneakersData';
 
 const Context = createContext();
 

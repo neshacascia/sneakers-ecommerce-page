@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Context } from '../context/Context';
 import Navbar from '../components/navbars/Navbar';
 import ImageCarousel from '../components/details/ImageCarousel';
-import { SHOES } from './sneakersData';
+import { SHOES } from '../sneakersData';
 import Form from '../components/Form';
 
 export default function Home() {
