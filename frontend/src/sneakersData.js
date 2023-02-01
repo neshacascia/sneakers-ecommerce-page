@@ -10,7 +10,7 @@ export const sneakersImagesArr = [
 ];
 
 export const SHOES = {
-  id: 's1',
+  id: 'price_1MWpF6KRK98X9KYipbaOKpQR',
   brand: 'adidas',
   name: 'OZWEEGO SHOES',
   description:
@@ -22,7 +22,7 @@ export const SHOES = {
 
 export const productsArray = [
   {
-    id: 's1',
+    id: 'price_1MWpF6KRK98X9KYipbaOKpQR',
     name: 'OZWEEGO SHOES',
     price: 135,
     thumbnail: sneakersImagesArr[0],
