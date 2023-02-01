@@ -1,10 +1,104 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-const CartContext = createContext({
+import { getProductData } from '../sneakersData';
+
+export const CartContext = createContext({
   items: [],
   totalAmount: 0,
+  getProductQty: () => {},
   addItem: item => {},
-  removeItem: item => {},
+  addOneItem: () => {},
+  removeOneItem: () => {},
+  deleteItem: item => {},
+  getTotalCost: () => {},
 });
 
-export default CartContext;
+export default function CartProvider(props) {
+  const [cartProducts, setCartProducts] = useState([]);
+
+  function getProductQty(id) {
+    const quantity = cartProducts.find(product => product.id === id)?.quantity;
+
+    if (quantity === undefined) {
+      return 0;
+    }
+
+    return quantity;
+  }
+
+  function addItem(id, qty) {
+    const quantity = getProductQty(id);
+
+    if (quantity === 0) {
+      //product is not in cart
+      setCartProducts([...cartProducts, { id: id, quantity: qty }]);
+    } else {
+      // product is in cart
+      // here we map over the array, it the id matches the id we're passing in, we add 1 to the quantity, else we
+      setCartProducts(
+        cartProducts.map(product =>
+          product.id === id
+            ? { ...product, quantity: product.quantity + qty }
+            : product
+        )
+      );
+    }
+  }
+
+  function addOneItem(id) {
+    setCartProducts(
+      cartProducts.map(product =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  }
+
+  function removeOneItem(id) {
+    const quantity = getProductQty(id);
+
+    if (quantity === 1) {
+      deleteItem(id);
+    } else {
+      setCartProducts(
+        cartProducts.map(product =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+      );
+    }
+  }
+
+  function deleteItem(id) {
+    setCartProducts(prevCartProducts =>
+      prevCartProducts.filter(product => product.id !== id)
+    );
+  }
+
+  function getTotalCost() {
+    let totalCost = 0;
+    cartProducts.map(cartItem => {
+      const productData = getProductData(cartItem.id);
+      totalCost += productData.price * cartItem.quantity;
+    });
+    return totalCost;
+  }
+
+  const contextValue = {
+    items: cartProducts,
+    getProductQty,
+    addItem,
+    addOneItem,
+    removeOneItem,
+    deleteItem,
+    getTotalCost,
+  };
+
+  return (
+    <CartContext.Provider value={contextValue}>
+      {props.children}
+    </CartContext.Provider>
+  );
+}

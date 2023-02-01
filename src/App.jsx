@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import ReactDOM from 'react-dom';
+import CartProvider from './context/CartContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Context } from './context/Context';
 import Home from './pages/Home';
@@ -18,7 +19,7 @@ function App() {
   const { toggleMenu, imageGallery, isCartOpen } = useContext(Context);
 
   return (
-    <>
+    <CartProvider>
       <RouterProvider router={router} />
 
       {toggleMenu &&
@@ -38,7 +39,7 @@ function App() {
           <CartModal />,
           document.getElementById('cart-modal-root')
         )}
-    </>
+    </CartProvider>
   );
 }
 
