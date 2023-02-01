@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Context } from '../context/Context';
 import Navbar from '../components/navbars/Navbar';
 import ImageCarousel from '../components/details/ImageCarousel';
+import { SHOES } from './sneakersData';
 import Form from '../components/Form';
 
 export default function Home() {
@@ -19,27 +20,28 @@ export default function Home() {
         <ImageCarousel />
 
         <section className="h-full font-display flex flex-col px-6 pt-6 mb-10 lg:w-fit">
-          <h3 className="font-brand text-lg pb-5 xl:pb-6">adidas</h3>
+          <h3 className="font-brand text-lg pb-5 xl:pb-6">{SHOES.brand}</h3>
           <h2 className="text-dark text-3xl font-bold pb-4 xl:text-4xl xl:pb-8">
-            OZWEEGO SHOES
+            {SHOES.name}
           </h2>
           <p className="text-body text-base font-light pb-6">
-            Push the boundaries of throwback style. These adidas OZWEEGO shoes
-            mutate '90s DNA into something entirely new. Show off the
-            high-volume, sculpted shape of this pair with shorts or cropped
-            pants. Extra cushioning keeps you comfortable from dawn to dusk (or
-            beyond).
+            {SHOES.description}
           </p>
 
           <div className="font-display flex items-center pb-6 xl:pb-8">
-            <span className="text-dark text-3xl font-bold pr-6">$135.00</span>
+            <span className="text-dark text-3xl font-bold pr-6">{`$${SHOES.discountedPrice}.00`}</span>
             <span className="bg-orange-100 text-orange-500 font-bold rounded px-2 mr-auto">
-              25%
+              {SHOES.discount}
             </span>
-            <span className="font-bold text-grey line-through">$180.00</span>
+            <span className="font-bold text-grey line-through">{`$${SHOES.originalPrice}.00`}</span>
           </div>
 
-          <Form />
+          <Form
+            id={SHOES.id}
+            brand={SHOES.brand}
+            name={SHOES.name}
+            price={SHOES.discountedPrice}
+          />
         </section>
       </section>
     </div>
