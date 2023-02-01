@@ -1,8 +1,10 @@
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-import prevIcon from '/assets/icon-previous.svg';
-import nextIcon from '/assets/icon-next.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
 import ImageThumbnails from './ImageThumbnails';
 
 export default function ImageCarousel() {
@@ -13,9 +15,9 @@ export default function ImageCarousel() {
     <div className="flex w-full relative md:justify-center md:flex-col lg:gap-8 lg:w-display lg:h-fit">
       <button
         onClick={prevImage}
-        className="bg-white w-10 h-10 border-2 border-orange-300 rounded-full absolute top-1/2 -translate-y-1/2 flex items-center justify-center ml-4 lg:hidden"
+        className="bg-white w-10 h-10 border-2 border-orange-300 rounded-md absolute top-1/2 -translate-y-1/2 flex items-center justify-center ml-4 lg:hidden"
       >
-        <img src={prevIcon} />
+        <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
       </button>
       <img
         src={sneakersImage}
@@ -24,9 +26,9 @@ export default function ImageCarousel() {
       />
       <button
         onClick={nextImage}
-        className="bg-white w-10 h-10 border-2 border-orange-300 rounded-full absolute top-1/2 right-0 -translate-y-1/2 flex items-center justify-center mr-4 lg:hidden"
+        className="bg-white w-10 h-10 border-2 border-orange-300 rounded-md absolute top-1/2 right-0 -translate-y-1/2 flex items-center justify-center mr-4 lg:hidden"
       >
-        <img src={nextIcon} />
+        <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
       </button>
 
       <ImageThumbnails />

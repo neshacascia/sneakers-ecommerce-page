@@ -3,8 +3,9 @@ import { Context } from '../../context/Context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import closeBtn from '/assets/icon-close.svg';
 import prevIcon from '/assets/icon-previous.svg';
 import nextIcon from '/assets/icon-next.svg';
 import ImageThumbnails from '../details/ImageThumbnails';
@@ -29,14 +30,14 @@ export default function ImageModal() {
             onClick={prevImage}
             className="bg-white w-10 h-10 border-2 border-orange-300 rounded-md flex items-center justify-center"
           >
-            <img src={prevIcon} />
+            <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
           </button>
 
           <button
             onClick={nextImage}
             className="bg-white w-10 h-10 border-2 border-orange-300 rounded-md flex items-center justify-center z-20"
           >
-            <img src={nextIcon} />
+            <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
           </button>
         </div>
       </div>
