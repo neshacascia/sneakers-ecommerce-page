@@ -10,6 +10,10 @@ import CartContext from '../../context/CartContext';
 export default function CartItem(props) {
   const cartContext = useContext(CartContext);
 
+  function removeItemFromCartHandler() {
+    cartContext.removeItem(props.id);
+  }
+
   return (
     <li>
       <div className="flex items-center p-6">
@@ -41,6 +45,7 @@ export default function CartItem(props) {
         <FontAwesomeIcon
           icon={faTrashCan}
           className="text-grey hover:text-orange-500"
+          onClick={removeItemFromCartHandler}
         ></FontAwesomeIcon>
       </div>
     </li>
