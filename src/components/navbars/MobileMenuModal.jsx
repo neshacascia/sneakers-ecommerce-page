@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import { navbarArr } from './navbarData';
 
-import closeBtn from '/assets/icon-close.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function MobileMenuModal() {
   const { closeModal } = useContext(Context);
@@ -19,7 +20,10 @@ export default function MobileMenuModal() {
   return (
     <div className="bg-gray-100 h-screen w-7/12 fixed z-10 p-6">
       <button className="mb-12" onClick={closeModal}>
-        <img src={closeBtn} />
+        <FontAwesomeIcon
+          icon={faXmark}
+          className="text-xl hover:text-orange-500"
+        ></FontAwesomeIcon>
       </button>
 
       <ul className="text-dark font-display font-bold text-lg flex flex-col gap-5">
