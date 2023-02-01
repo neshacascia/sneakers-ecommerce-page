@@ -28,7 +28,7 @@ export default function Home() {
             {SHOES.description}
           </p>
 
-          <div className="font-display flex items-center pb-6 xl:pb-8">
+          <div className="font-display flex items-center pb-6 xl:pb-10">
             <span className="text-dark text-3xl font-bold pr-6">{`$${SHOES.discountedPrice}.00`}</span>
             <span className="bg-orange-100 text-orange-500 font-bold rounded px-2 mr-auto">
               {SHOES.discount}
