@@ -3,54 +3,53 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
-import { sneakersImagesArr } from '../../sneakersData';
+import { getProductData } from '../../sneakersData';
 import { useContext } from 'react';
-import CartContext from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 
 export default function CartItem(props) {
-  const cartContext = useContext(CartContext);
+  const cart = useContext(CartContext);
 
-  function removeItemFromCartHandler() {
-    cartContext.removeItem(props.id);
-  }
-
-  function decreaseItemQtyHandler() {
-    cartContext.decreaseQty(props.id);
-  }
+  const id = props.id;
+  const quantity = props.quantity;
+  const productData = getProductData(id);
 
   return (
     <li>
       <div className="flex items-center p-6">
         <img
-          src={sneakersImagesArr[0]}
+          src={productData.thumbnail}
           className="w-cartItem h-cartItem rounded mr-4"
         />
 
         <div className="font-display font-normal mr-auto">
-          <span>{props.name}</span>
+          <span>{productData.name}</span>
           <div>
-            <span className="pr-4">{`$${props.price}.00 x ${props.amount}`}</span>
+            <span className="pr-4">{`$${productData.price.toFixed(
+              2
+            )} x ${quantity}`}</span>
             <span className="font-bold">{`$${
-              props.price * props.amount
-            }.00`}</span>
+              quantity * productData.price.toFixed(2)
+            }`}</span>
           </div>
         </div>
 
         <FontAwesomeIcon
           icon={faPlus}
           className="text-grey hover:text-orange-500 mr-4"
+          onClick={() => cart.addOneItem(props.id)}
         ></FontAwesomeIcon>
 
         <FontAwesomeIcon
           icon={faMinus}
           className="text-grey hover:text-orange-500 mr-4"
-          onClick={decreaseItemQtyHandler}
+          onClick={() => cart.removeOneItem(props.id)}
         ></FontAwesomeIcon>
 
         <FontAwesomeIcon
           icon={faTrashCan}
           className="text-grey hover:text-orange-500"
-          onClick={removeItemFromCartHandler}
+          onClick={() => cart.deleteItem(props.id)}
         ></FontAwesomeIcon>
       </div>
     </li>

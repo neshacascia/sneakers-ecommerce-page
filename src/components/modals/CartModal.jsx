@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import CartContext from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import Cart from '../details/Cart';
 
 export default function CartModal() {
-  const cartContext = useContext(CartContext);
+  const cart = useContext(CartContext);
 
   return (
     <div className="w-screen flex justify-center lg:justify-end">
@@ -11,7 +11,7 @@ export default function CartModal() {
         <span className="px-6 my-6">Cart</span>
         <hr />
         <Cart />
-        {cartContext.items.length > 0 && (
+        {cart.items.length > 0 && (
           <button className="bg-orange-500 font-display font-bold text-white  h-14 rounded-lg shadow-orange-200 shadow-lg mt-2 mx-6">
             Checkout
           </button>
