@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import { navbarArr } from './navbarData';
+import { CartContext } from '../../context/CartContext';
+import CartIcon from '../details/CartIcon';
 
 import hamburgerMenu from '/assets/icon-menu.svg';
 import logo from '/assets/logo.svg';
@@ -9,6 +11,7 @@ import iconCart from '/assets/icon-cart.svg';
 
 export default function Navbar() {
   const { openModal, openCart } = useContext(Context);
+  const cart = useContext(CartContext);
 
   const navLinks = navbarArr.map(nav => (
     <li key={nav.id} className="hover:text-orange-500">
@@ -24,13 +27,17 @@ export default function Navbar() {
 
       <img src={logo} className="mr-auto lg:mr-14" />
 
-      <ul className="hidden font-display text-navGray block lg:flex items-center gap-8 mr-auto">
+      <ul className="hidden font-display text-navGray lg:flex items-center gap-8 mr-auto">
         {navLinks}
       </ul>
 
-      <button onClick={openCart}>
-        <img src={iconCart} />
-      </button>
+      <div className="relative">
+        {cart.items.length > 0 && <CartIcon />}
+
+        <button onClick={openCart} className="relative">
+          <img src={iconCart} />
+        </button>
+      </div>
     </nav>
   );
 }

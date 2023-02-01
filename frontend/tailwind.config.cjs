@@ -24,11 +24,13 @@ module.exports = {
         quantity: '157px',
         cart: '360px',
         cartItem: '50px',
+        cartIcon: '19px',
       },
       height: {
         imageModal: '450px',
         cart: '300px',
         cartItem: '50px',
+        cartIcon: '13px',
       },
       opacity: {
         images: '0.02',
