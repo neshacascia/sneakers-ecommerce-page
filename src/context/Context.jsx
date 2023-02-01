@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 
-import { sneakersImagesArr } from '../pages/sneakersImagesData';
+import { sneakersImagesArr } from '../pages/sneakersData';
 
 const Context = createContext();
 
@@ -52,7 +52,6 @@ function ContextProvider(props) {
     setIsCartOpen(true);
   }
 
-  console.log(isCartOpen);
   if (activeIndex < 0) {
     setActiveIndex(sneakersImagesArr.length - 1);
   }
