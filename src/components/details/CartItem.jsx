@@ -14,6 +14,10 @@ export default function CartItem(props) {
     cartContext.removeItem(props.id);
   }
 
+  function decreaseItemQtyHandler() {
+    cartContext.decreaseQty(props.id);
+  }
+
   return (
     <li>
       <div className="flex items-center p-6">
@@ -40,6 +44,7 @@ export default function CartItem(props) {
         <FontAwesomeIcon
           icon={faMinus}
           className="text-grey hover:text-orange-500 mr-4"
+          onClick={decreaseItemQtyHandler}
         ></FontAwesomeIcon>
 
         <FontAwesomeIcon
