@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-import { sneakersImagesArr } from '../../pages/sneakersImagesData';
+import { sneakersImagesArr } from '../../pages/sneakersData';
 
 export default function ImageThumbnails() {
   const { changeMainImage } = useContext(Context);

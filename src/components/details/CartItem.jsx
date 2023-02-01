@@ -3,7 +3,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
-import { sneakersImagesArr } from '../../pages/sneakersImagesData';
+import { sneakersImagesArr } from '../../pages/sneakersData';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 
