@@ -46,7 +46,7 @@ export default function Form(props) {
       >
         <div className="bg-gray-100 w-full h-14 flex justify-between items-center rounded-lg px-6 xl:w-quantity">
           <button
-            className="text-orange-500 font-bold text-xl"
+            className="text-orange-500 font-bold text-xl pr-2"
             type="button"
             onClick={minusQuantity}
             disabled={disableMinusBtn}
