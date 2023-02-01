@@ -4,12 +4,11 @@ import { getProductData } from '../sneakersData';
 
 export const CartContext = createContext({
   items: [],
-  totalAmount: 0,
   getProductQty: () => {},
-  addItem: item => {},
+  addItem: () => {},
   addOneItem: () => {},
   removeOneItem: () => {},
-  deleteItem: item => {},
+  deleteItem: () => {},
   getTotalCost: () => {},
 });
 
@@ -30,11 +29,8 @@ export default function CartProvider(props) {
     const quantity = getProductQty(id);
 
     if (quantity === 0) {
-      //product is not in cart
       setCartProducts([...cartProducts, { id: id, quantity: qty }]);
     } else {
-      // product is in cart
-      // here we map over the array, it the id matches the id we're passing in, we add 1 to the quantity, else we
       setCartProducts(
         cartProducts.map(product =>
           product.id === id
@@ -72,17 +68,20 @@ export default function CartProvider(props) {
   }
 
   function deleteItem(id) {
-    setCartProducts(prevCartProducts =>
-      prevCartProducts.filter(product => product.id !== id)
+    setCartProducts(cartProducts =>
+      cartProducts.filter(product => product.id !== id)
     );
   }
 
   function getTotalCost() {
     let totalCost = 0;
+
     cartProducts.map(cartItem => {
       const productData = getProductData(cartItem.id);
+
       totalCost += productData.price * cartItem.quantity;
     });
+
     return totalCost;
   }
 
