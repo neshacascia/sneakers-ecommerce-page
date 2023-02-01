@@ -6,32 +6,35 @@ import MobileMenuModal from './components/navbars/MobileMenuModal';
 import ImageModal from './components/modals/ImageModal';
 import './App.css';
 import CartModal from './components/modals/CartModal';
+import CartProvider from './context/CartProvider';
 
 function App() {
   const { toggleMenu, imageGallery, isCartOpen } = useContext(Context);
 
   return (
-    <div className="App">
-      <Home />
+    <CartProvider>
+      <div className="App">
+        <Home />
 
-      {toggleMenu &&
-        ReactDOM.createPortal(
-          <MobileMenuModal />,
-          document.getElementById('modal-root')
-        )}
+        {toggleMenu &&
+          ReactDOM.createPortal(
+            <MobileMenuModal />,
+            document.getElementById('modal-root')
+          )}
 
-      {imageGallery &&
-        ReactDOM.createPortal(
-          <ImageModal />,
-          document.getElementById('image-modal-root')
-        )}
+        {imageGallery &&
+          ReactDOM.createPortal(
+            <ImageModal />,
+            document.getElementById('image-modal-root')
+          )}
 
-      {isCartOpen &&
-        ReactDOM.createPortal(
-          <CartModal />,
-          document.getElementById('cart-modal-root')
-        )}
-    </div>
+        {isCartOpen &&
+          ReactDOM.createPortal(
+            <CartModal />,
+            document.getElementById('cart-modal-root')
+          )}
+      </div>
+    </CartProvider>
   );
 }
 

@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import CartContext from '../context/CartContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
-export default function Form() {
+export default function Form(props) {
+  const cartContext = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
@@ -19,19 +23,26 @@ export default function Form() {
     setQuantity(prevQuantity => prevQuantity - 1);
   }
 
-  function submitHandler(e) {
+  function addToCartHandler(e) {
     e.preventDefault();
     setIsTouched(false);
     setIsAdded(true);
 
-    console.log('Added to cart!');
+    if (quantity !== 0) {
+      cartContext.addItem({
+        id: props.id,
+        name: props.name,
+        amount: quantity,
+        price: props.price,
+      });
+    }
   }
 
   return (
     <>
       <form
         className="flex flex-col items-center h-auto xl:flex-row xl:gap-4"
-        onSubmit={submitHandler}
+        onSubmit={addToCartHandler}
       >
         <div className="bg-gray-100 w-full h-14 flex justify-between items-center rounded-lg px-6 xl:w-quantity">
           <button
