@@ -19,3 +19,22 @@ export const SHOES = {
   discountedPrice: 135,
   discount: '25%',
 };
+
+export const productsArray = [
+  {
+    id: 's1',
+    name: 'OZWEEGO SHOES',
+    price: 135,
+    thumbnail: sneakersImagesArr[0],
+  },
+];
+
+export function getProductData(id) {
+  let productData = productsArray.find(product => product.id === id);
+
+  if (productData === undefined) {
+    return;
+  }
+
+  return productData;
+}
