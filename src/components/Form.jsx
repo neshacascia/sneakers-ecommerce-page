@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
-import CartContext from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 export default function Form(props) {
-  const cartContext = useContext(CartContext);
+  const cart = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
@@ -29,12 +29,7 @@ export default function Form(props) {
     setIsAdded(true);
 
     if (quantity !== 0) {
-      cartContext.addItem({
-        id: props.id,
-        name: props.name,
-        amount: quantity,
-        price: props.price,
-      });
+      cart.addItem(props.id, quantity);
     }
   }
 
