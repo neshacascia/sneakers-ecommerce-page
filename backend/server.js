@@ -1,6 +1,3 @@
-// sk_test_51MWp5lKRK98X9KYiOJIJM0gNwnysXv3URv6ghNoysnZaLytkhhZqeoHoqlSDPEW58RuP1biFHUGDZVi0fdlSoL6600AxsXrZFT
-// shoes: price_1MWpF6KRK98X9KYipbaOKpQR
-
 const express = require('express');
 const cors = require('cors');
 const stripe = require('stripe')(
