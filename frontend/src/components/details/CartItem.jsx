@@ -16,7 +16,7 @@ export default function CartItem(props) {
 
   return (
     <li>
-      <div className="flex items-center p-6">
+      <div className="flex items-center p-6 select-none">
         <img
           src={productData.thumbnail}
           className="w-cartItem h-cartItem rounded mr-4"
