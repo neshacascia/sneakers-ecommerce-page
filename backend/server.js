@@ -34,8 +34,4 @@ app.post('/checkout', async (req, res) => {
   );
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('dist'));
-  req.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
-}
 app.listen(4000, () => console.log('Listening on port 4000'));
