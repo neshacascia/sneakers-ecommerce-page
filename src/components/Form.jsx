@@ -49,7 +49,7 @@ export default function Form(props) {
             -
           </button>
           <input
-            className="bg-gray-100 text-center font-bold disabled:text-black"
+            className="bg-gray-100 text-center font-bold disabled:text-black opacity-100"
             type="number"
             min="0"
             max="10"
