@@ -41,8 +41,7 @@ module.exports = {
       gap: {
         modal: '405px',
       },
-      text,
     },
   },
-  plugins: [require('tailwindcss-text-fill')],
+  plugins: [],
 };
