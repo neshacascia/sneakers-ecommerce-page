@@ -6,7 +6,7 @@ export default function CartModal() {
   const cart = useContext(CartContext);
 
   async function checkout() {
-    await fetch('https://fancy-erin-panama-hat.cyclic.app', {
+    await fetch('http://localhost:4000/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
