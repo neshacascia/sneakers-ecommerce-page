@@ -6,8 +6,8 @@ export default function CartModal() {
   const cart = useContext(CartContext);
 
   async function checkout() {
-    await fetch('http://localhost:4000/checkout', {
-      method: 'POST',
+    await fetch('https://nice-pear-nematode-tam.cyclic.app/checkout', {
+      method: 'post',
       headers: {
         'Content-Type': 'application/json',
       },
