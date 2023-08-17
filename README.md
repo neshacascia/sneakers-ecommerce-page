@@ -1,5 +1,6 @@
 # sneakers-product-page
 This product page has lightbox product gallery, and cart functionality.
+This is the client-side code. The server-side code can be found here: [Sneakers Server](https://github.com/neshacascia/sneakers-server)
 
 ## Demo
 [Live Demo](https://nc-sneakers-product-page.netlify.app)
@@ -9,6 +10,8 @@ This product page has lightbox product gallery, and cart functionality.
 ## Built with
 - React
 - React Router v6
+- Express
+- Stripe API
 - Vite
 - TailwindCSS
 
@@ -19,6 +22,7 @@ This product page has lightbox product gallery, and cart functionality.
 - [x] Switch the large product image by clicking on the small thumbnail images
 - [x] Add items to the cart
 - [x] View the cart, increase and decrease quantities or remove items from it
+- [x] Checkout items in the cart
 
 ## Running this Project Locally
 From the repo:
